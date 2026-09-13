@@ -220,11 +220,14 @@ li::marker {
   margin-bottom: 10px;
 }
 
-.achievement-card p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #c9d1d9;
+.achievement-card {
+  background: #161b22;  /* pehle #0d1117 tha */
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
+
 
 @media (max-width: 600px) {
   .achievements-grid {
@@ -271,14 +274,13 @@ li::marker {
 }
 
 .impact-card {
-  background: #0d1117;
+  background: #161b22;  /* pehle #0d1117 tha */
   border: 1px solid #30363d;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
-
 .impact-card:hover {
   transform: translateY(-4px);
   border-color: #a371f7;
@@ -315,8 +317,9 @@ li::marker {
   margin-top: 16px;
 }
 
+
 .stat-card {
-  background: #0d1117;
+  background: #161b22;  /* pehle #0d1117 tha */
   border: 1px solid #30363d;
   border-radius: 10px;
   padding: 24px 16px;
@@ -429,4 +432,82 @@ li::marker {
 }
 h2[id] {
   scroll-margin-top: 90px;
+}
+/* ===== SUBTLE ANIMATIONS ===== */
+
+/* Image fade-in on load */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tribute-img {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.tribute-img:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+/* Timeline items appear one by one */
+.timeline-item {
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.25s; }
+.timeline-item:nth-child(3) { animation-delay: 0.4s; }
+.timeline-item:nth-child(4) { animation-delay: 0.55s; }
+.timeline-item:nth-child(5) { animation-delay: 0.7s; }
+.timeline-item:nth-child(6) { animation-delay: 0.85s; }
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 600px) {
+  body {
+    padding: 30px 16px;
+  }
+
+  #title {
+    font-size: 2rem;
+  }
+
+  #subtitle {
+    font-size: 0.85rem;
+  }
+
+  #img-div {
+    gap: 14px;
+  }
+
+  .tribute-img {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  #tribute-info,
+  #timeline-section {
+    padding: 22px 20px;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #nav-links {
+    right: 16px;
+  }
+
+  .nav-container {
+    padding: 14px 0;
+  }
 }
