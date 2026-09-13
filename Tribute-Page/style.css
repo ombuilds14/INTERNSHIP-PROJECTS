@@ -231,3 +231,34 @@ li::marker {
     grid-template-columns: 1fr;
   }
 }
+/* ===== WHY I ADMIRE HIM - HIGHLIGHT CARD ===== */
+.admire-card {
+  background: #0d1117;
+  border-left: 4px solid #a371f7;
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-top: 16px;
+}
+
+.admire-highlight {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #e6edf3;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.admire-highlight::before {
+  content: "“";
+  font-size: 2rem;
+  color: #a371f7;
+  margin-right: 4px;
+  font-style: normal;
+}
+
+.admire-note {
+  font-size: 0.95rem;
+  color: #c9d1d9;
+  line-height: 1.7;
+}
