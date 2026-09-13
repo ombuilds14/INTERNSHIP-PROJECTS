@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #6a5af9, #a35afc);
+  padding: 20px;
+}
+
+.app {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  color: #6a5af9;
+  font-size: 28px;
+}
+
+.tagline {
+  color: #888;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+#taskInput:focus {
+  border-color: #6a5af9;
+}
+
+#addBtn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #6a5af9;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#addBtn:hover {
+  background: #5646d6;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border: none;
+  background: #f0f0f5;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.2s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: #6a5af9;
+  color: white;
+}
+
+#taskList {
+  list-style: none;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#taskList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+#taskList li:hover {
+  background: #fafaff;
+}
+
+#taskList li.completed span {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ff5c5c;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: #888;
+}
+
+#clearCompletedBtn {
+  background: none;
+  border: none;
+  color: #6a5af9;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+#clearCompletedBtn:hover {
+  text-decoration: underline;
+}

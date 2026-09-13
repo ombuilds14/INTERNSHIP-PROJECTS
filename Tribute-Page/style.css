@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* ===== HERO SECTION ===== */
+#hero {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #30363d;
+  margin-bottom: 40px;
+}
+
+#title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #58a6ff, #a371f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+#subtitle {
+  font-family: 'Courier New', monospace;
+  color: #7d8590;
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+#subtitle::before {
+  content: "> ";
+  color: #3fb950;
+}
+
+/* ===== IMAGES ===== */
+#img-div {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: 45px auto;
+  max-width: 700px;
+}
+
+.tribute-img {
+  width: 280px;
+  border-radius: 12px;
+  border: 1px solid #58a6ff33;
+  box-shadow: 0 0 20px rgba(88, 166, 255, 0.15), 0 8px 24px rgba(0,0,0,0.4);
+  filter: grayscale(15%);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.tribute-img:hover {
+  transform: translateY(-6px);
+  filter: grayscale(0%);
+}
+
+#img-caption {
+  width: 100%;
+  font-size: 0.85rem;
+  color: #7d8590;
+  margin-top: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+/* ===== QUOTE ===== */
+#quote {
+  max-width: 550px;
+  margin: 30px auto 0 auto;
+  font-family: 'Courier New', monospace;
+  font-style: italic;
+  color: #c9d1d9;
+  font-size: 0.95rem;
+  border-left: 3px solid #3fb950;
+  padding-left: 16px;
+  text-align: left;
+}
+
+#affiliations {
+  font-family: 'Courier New', monospace;
+  color: #7d8590;
+  font-size: 0.85rem;
+  margin-top: 20px;
+  letter-spacing: 1px;
+}
+
+/* ===== CONTENT SECTION ===== */
+#tribute-info {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 14px;
+  padding: 35px 40px;
+}
+
+h2 {
+  color: #58a6ff;
+  font-size: 1.3rem;
+  border-left: 3px solid #58a6ff;
+  padding-left: 12px;
+  margin-top: 30px;
+  margin-bottom: 12px;
+}
+
+h2:first-child {
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.7;
+  color: #c9d1d9;
+}
+
+ul {
+  line-height: 1.9;
+  color: #c9d1d9;
+  padding-left: 20px;
+}
+
+li::marker {
+  color: #3fb950;
+}
+/* ===== TIMELINE ===== */
+#timeline-section {
+  max-width: 700px;
+  margin: 40px auto 0 auto;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 14px;
+  padding: 35px 40px;
+  text-align: left;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 20px;
+  padding-left: 20px;
+  border-left: 2px solid #30363d;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -27px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #3fb950;
+  border: 2px solid #0d1117;
+}
+
+.timeline-item .year {
+  display: block;
+  font-family: 'Courier New', monospace;
+  color: #58a6ff;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.timeline-item .event {
+  display: block;
+  color: #c9d1d9;
+  margin-top: 2px;
+}
+/* ===== ACHIEVEMENT CARDS ===== */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.achievement-card {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-4px);
+  border-color: #58a6ff;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.achievement-card h3 {
+  color: #e6edf3;
+  font-size: 1.05rem;
+  margin-bottom: 2px;
+}
+
+.achievement-card .role {
+  font-family: 'Courier New', monospace;
+  color: #3fb950;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.achievement-card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #c9d1d9;
+}
+
+@media (max-width: 600px) {
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+}
