@@ -5,154 +5,392 @@
   font-family: 'Segoe UI', Arial, sans-serif;
 }
 
+:root {
+  --bg-gradient-start: #6a5af9;
+  --bg-gradient-end: #a35afc;
+  --card-bg: #ffffff;
+  --text-main: #222;
+  --text-muted: #888;
+  --border-color: #eee;
+  --accent: #6a5af9;
+  --accent-hover: #5646d6;
+  --pill-bg: #f0f0f5;
+  --input-bg: #ffffff;
+  --input-border: #ddd;
+}
+
+body[data-theme="dark"] {
+  --bg-gradient-start: #0f172a;
+  --bg-gradient-end: #1e2a47;
+  --card-bg: #16213e;
+  --text-main: #f0f0f5;
+  --text-muted: #9aa3b5;
+  --border-color: #2a3655;
+  --accent: #8f7bff;
+  --accent-hover: #a693ff;
+  --pill-bg: #1f2b4a;
+  --input-bg: #1a2540;
+  --input-border: #33406a;
+}
+
 body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #6a5af9, #a35afc);
-  padding: 20px;
+  align-items: flex-start;
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  padding: 30px 16px;
+  transition: background 0.3s ease;
 }
 
 .app {
-  background: #ffffff;
+  background: var(--card-bg);
+  color: var(--text-main);
   width: 100%;
-  max-width: 420px;
+  max-width: 460px;
   border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.app-header {
-  text-align: center;
-  margin-bottom: 24px;
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .app-header h1 {
-  color: #6a5af9;
-  font-size: 28px;
+  color: var(--accent);
+  font-size: 26px;
 }
 
 .tagline {
-  color: #888;
-  font-size: 14px;
-  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-top: 2px;
 }
 
-.input-row {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
+.theme-toggle {
+  background: var(--pill-bg);
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-#taskInput {
-  flex: 1;
-  padding: 12px;
-  border: 1px solid #ddd;
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.search-row {
+  margin-top: 18px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--input-border);
   border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text-main);
   font-size: 14px;
   outline: none;
 }
 
+.input-card {
+  margin-top: 14px;
+  padding: 14px;
+  background: var(--pill-bg);
+  border-radius: 12px;
+}
+
+#taskInput {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text-main);
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
 #taskInput:focus {
-  border-color: #6a5af9;
+  border-color: var(--accent);
+}
+
+.input-row-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.input-row-secondary select,
+.input-row-secondary input[type="date"] {
+  flex: 1;
+  min-width: 90px;
+  padding: 8px;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text-main);
+  font-size: 13px;
 }
 
 #addBtn {
-  padding: 12px 18px;
+  padding: 10px 18px;
   border: none;
   border-radius: 8px;
-  background: #6a5af9;
+  background: var(--accent);
   color: white;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s ease;
 }
 
 #addBtn:hover {
-  background: #5646d6;
+  background: var(--accent-hover);
 }
 
 .filters {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 16px;
+  margin: 16px 0;
 }
 
 .filter-btn {
-  padding: 6px 14px;
+  padding: 6px 16px;
   border: none;
-  background: #f0f0f5;
+  background: var(--pill-bg);
+  color: var(--text-muted);
   border-radius: 20px;
   font-size: 13px;
   cursor: pointer;
-  color: #555;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .filter-btn.active,
 .filter-btn:hover {
-  background: #6a5af9;
+  background: var(--accent);
   color: white;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 14px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.progress-section {
+  margin-bottom: 16px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.progress-bar-track {
+  width: 100%;
+  height: 8px;
+  background: var(--pill-bg);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+  border-radius: 10px;
+  transition: width 0.4s ease;
 }
 
 #taskList {
   list-style: none;
-  max-height: 300px;
+  max-height: 320px;
   overflow-y: auto;
 }
 
 #taskList li {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
   padding: 12px;
-  border-bottom: 1px solid #f0f0f0;
-  font-size: 15px;
-  transition: background 0.2s;
+  margin-bottom: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  transition: transform 0.15s ease, opacity 0.25s ease, background 0.2s ease;
+  animation: slideIn 0.25s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#taskList li.removing {
+  opacity: 0;
+  transform: translateX(20px);
 }
 
 #taskList li:hover {
-  background: #fafaff;
+  transform: translateY(-2px);
+  background: var(--pill-bg);
 }
 
-#taskList li.completed span {
+#taskList li .checkbox {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+
+.task-content {
+  flex: 1;
+}
+
+.task-text {
+  font-size: 14.5px;
+  word-break: break-word;
+}
+
+#taskList li.completed .task-text {
   text-decoration: line-through;
-  color: #aaa;
+  color: var(--text-muted);
 }
 
-.task-left {
+.task-meta {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 11px;
 }
 
-.delete-btn {
+.priority-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--pill-bg);
+}
+
+.priority-dot::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.priority-high::before { background: #ff5c5c; }
+.priority-medium::before { background: #ffb84d; }
+.priority-low::before { background: #4dd28c; }
+
+.category-tag {
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--pill-bg);
+  color: var(--text-muted);
+}
+
+.due-date-tag {
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--pill-bg);
+  color: var(--text-muted);
+}
+
+.due-date-tag.overdue {
+  background: #ff5c5c22;
+  color: #ff5c5c;
+  font-weight: 600;
+}
+
+.task-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.task-actions button {
   background: none;
   border: none;
-  color: #ff5c5c;
-  font-size: 16px;
   cursor: pointer;
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.edit-btn:hover { color: var(--accent); }
+.delete-btn:hover { color: #ff5c5c; }
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 20px 0;
+  display: none;
 }
 
 .app-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 16px;
+  margin-top: 10px;
   font-size: 13px;
-  color: #888;
+  color: var(--text-muted);
 }
 
 #clearCompletedBtn {
   background: none;
   border: none;
-  color: #6a5af9;
+  color: var(--accent);
   cursor: pointer;
   font-size: 13px;
 }
 
 #clearCompletedBtn:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 20px;
+  }
+  .input-row-secondary {
+    flex-direction: column;
+  }
+  .input-row-secondary select,
+  .input-row-secondary input[type="date"],
+  #addBtn {
+    width: 100%;
+  }
 }
